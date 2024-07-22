@@ -56,7 +56,7 @@ class BluetoothEventCallback : public BLECharacteristicCallbacks {
       Serial.println("Yes, enabled");
       enableLed(data[1], data[2] > 0); 
     } 
-   Serial.printf("data[0]: %d, data[1]: %d, data[2]: %d, data[3]: %d, data[4]: %d, data[5]: %d, data[6]: %d", data[0], data[1], data[2], data[3], data[4], data[5], data[6]);
+   Serial.printf("data[0]: %d, data[1]: %d, data[2]: %d, data[3]: %d, data[4]: %d, data[5]: %d, data[6]: %d\n", data[0], data[1], data[2], data[3], data[4], data[5], data[6]);
     sendDeviceState();
   }
 }; 
