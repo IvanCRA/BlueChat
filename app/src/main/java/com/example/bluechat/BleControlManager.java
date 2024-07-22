@@ -21,10 +21,6 @@ public class BleControlManager extends BleManager {
     public static final UUID WORK_TIME_UUID = UUID.fromString("da19c791-3418-4ceb-8a71-9166f2e5223c");
 
     public static final int CMD_CONTROL_LED = 0x1;
-    public static final int CMD_CONTROL_SERVO = 0x2;
-
-    public static final int LED_FIRST = 25;
-
 
     private BluetoothGattCharacteristic controlRequest;
     private BluetoothGattCharacteristic controlResponse;
@@ -44,14 +40,6 @@ public class BleControlManager extends BleManager {
         writeCharacteristic(
                 controlRequest,
                 new byte[]{CMD_CONTROL_LED, led.getPin(), (byte) ((enable) ? 0x1 : 0x0)},
-                BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT
-        ).enqueue();
-    }
-
-    public void setAngleServo(int angle) {
-        writeCharacteristic(
-                controlRequest,
-                new byte[]{CMD_CONTROL_SERVO, (byte) angle},
                 BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT
         ).enqueue();
     }
